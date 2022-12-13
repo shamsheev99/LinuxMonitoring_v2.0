@@ -1,91 +1,6 @@
 # LinuxMonitoring v2.0
 
-> При старте работы над проектом просим вас постараться хронометрировать время работы над проектом.
-> По завершении работы над проектом просим вас ответить на два вопроса [в этом опросе](https://forms.gle/V8JrqwsAJAnCgq8QA)
-
-Real-time monitoring and research of the system status.
-
-The russian version of the task can be found in the repository.
-
-
-## Contents
-
-1. [Chapter I](#chapter-i) 
-2. [Chapter II](#chapter-ii) \
-    2.1. [GoAccess](#goaccess) \
-    2.2. [Prometheus](#prometheus) \
-    2.3. [Grafana](#grafana)
-3. [Chapter III](#chapter-iii) \
-    3.1. [File generator](#part-1-file-generator)  
-    3.2. [File system clogging](#part-2-file-system-clogging)  
-    3.3. [Cleaning the file system](#part-3-cleaning-the-file-system)  
-    3.4. [Log generator](#part-4-log-generator)  
-    3.5. [Monitoring](#part-5-monitoring)  
-    3.6. [GoAccess](#part-6-goaccess)  
-    3.7. [Prometheus and Grafana](#part-7-prometheus-and-grafana)  
-    3.8. [A ready-made dashboard](#part-8-a-ready-made-dashboard)  
-    3.9. [Bonus. Your own node_exporter](#part-9-bonus-your-own-node_exporter)  
-
-
-## Chapter I
-
-![linux_monitoringv2.0](misc/images/linux_monitoringv2.0.png)
-
-Planet Earth, USA, California, nowadays.
-
-The working day has just started and you’ve already been called to your superiors. They tell you that your buddy Seb hasn't shown up for work in four days. There is a risk that his task will not be finished on time.
-So, now it's your responsibility to figure out the monitoring in Linux, so that you can take over for your careless teammate if necessary.
-
-You enter Seb's office, sit down in front of his computer and immediately open a suspiciously short file with his notes.
-While you look over the information that Seb has gathered, you can't stop thinking about the delicious lunch you've left in the break room...
-
-
-## Chapter II
-
-### **GoAccess**
-
-GoAccess is a log analyser that can handle logs in real time, visualise the information and pass it on via either a terminal or a web browser as a web page.
-
-### **Prometheus**
-
-Time series databases, just as their name implies, are database systems, specifically developed to handle time-related data.
-
-Most systems use relational, table-based databases. Time series databases work differently.
-Data is still stored in 'collections', but these collections have one common thing: they aggregate over time.
-Basically, this means that for each point that can be saved, there is a timestamp related to it.
-
-Prometheus is a time series database to which an entire ecosystem of tools can be attached to extend its functionality. \
-Prometheus is created to monitor a wide variety of systems: servers, databases, virtual machines, basically almost anything.
-
-### **Grafana**
-
-Grafana is a platform for data visualisation, monitoring and analysis.
-Grafana allows users to create *dashboards* with *panels*, each displaying specific indicators over a set period of time.
-
-Each *dashboard* is universal, so it can be customised for a certain project.
-
-*Panel* is the basic visualisation element of the selected indicators.
-
-*Dashboard* is a set of one or more panels placed in a grid with a set of variables (e.g. server name, application name, etc.).
-
-
-## Chapter III
-
-- The written bash scripts must be in the src folder
-- For each task you must create a folder with the following name: **0x**, where x is the task number.
-- All scripts must be decomposed and split into several files
-- The main script file for each task must be named **main.sh**
-- All scripts should have checks for incorrect input (not all parameters specified, wrong format parameters, etc.)
-- All scripts must be run on a virtual machine *Ubuntu Server 20.04 LTS*
-
-
 ## Part 1. File generator
-
-After a brief look at the information found on Seb's computer, you walk into the break room and find out that Mike has taken your delicious sandwich, which you specially brought from home.
-
-You can't just let it slide, you have to prank him in return and teach him a lesson.
-
-This will give you a chance to practice working with files in bash scripts. It may be useful in preparing a test environment to set up monitoring tasks.
 
 **== Task ==**
 
@@ -112,8 +27,6 @@ Make a log file with data on all created folders and files (full path, creation 
 
 
 ## Part 2. File system clogging
-
-And now it's time to show Mike what a man whose sandwich has been stolen is capable of.
 
 **== Task ==**
 
@@ -142,8 +55,6 @@ At the end of the script, display the start time, end time and total running tim
 
 ## Part 3. Cleaning the file system
 
-Damn it! You ran the script on the wrong computer. Now you urgently need to write a script to fix it.
-
 **== Task ==**
 
 Write a bash script. The script is run with 1 parameter. The script should be able to clear the system from the folders and files created in [Part 2](#part-2-file-system-clogging) in 3 ways:
@@ -158,10 +69,6 @@ The cleaning method is set as a parameter with a value of 1, 2 or 3 when you run
 
 
 ## Part 4. Log generator
-
-You are finally done with your stuff and ready to continue working out the monitoring.
-
-To begin with, it would be a good idea to create logs that can be analysed.
 
 **== Task ==**
 
@@ -182,8 +89,6 @@ Specify in the comments of your script/program what each of the response codes u
 
 ## Part 5. Monitoring
 
-Now that you have the files to analyse, you can move on to monitoring.
-
 **== Task ==**
 
 Write a bash script to parse **nginx** logs from [Part 4](#part-4-log-generator) via **awk**.
@@ -199,8 +104,6 @@ Depending on the value of the parameter, output the following:
 
 ## Part 6. **GoAccess**
 
-Watching the results of your efforts in the console is certainly nice, but why not also use a ready-made solution that provides a user-friendly interface?
-
 **== Task ==**
 
 Use the GoAccess utility to get the same information as in [Part 5](#part-5-monitoring)
@@ -209,8 +112,6 @@ Open the web interface of the utility on the local machine.
 
 
 ## Part 7. **Prometheus** and **Grafana**
-
-Practice with the logs is over for now. It's time to monitor the state of the system in general.
 
 **== Task ==**
 
@@ -228,9 +129,6 @@ Practice with the logs is over for now. It's time to monitor the state of the sy
 
 ## Part 8. A ready-made dashboard
 
-After all, why make your own dashboard when, as they say, "everything has already been stolen before us"?
-Why not get a ready-made dashboard that has all the metrics you need?
-
 **== Task ==**
 
 ##### Download the ready-made dashboard *Node Exporter Quickstart and Dashboard* from **Grafana Labs** official website.
@@ -244,8 +142,6 @@ Why not get a ready-made dashboard that has all the metrics you need?
 
 
 ## Part 9. Bonus. Your own *node_exporter*
-
-It is always useful and convenient to analyse the system with special utilities, but you have always wanted to understand how they work.
 
 **== Task ==**
 
