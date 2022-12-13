@@ -1,0 +1,1 @@
+https://grafana.com/grafana/dashboards/13978 - Node Exporter Quickstart and Dashboard
